@@ -28,14 +28,21 @@ elif test "$action" = "list"
     sudo borg $action /backup
 elif test "$action" = "extract"
     then
-    echo Extraction du contenue de la sauvegarde \"$nomSauvegarde\" en cours...
+    echo Extraction du contenue du backup \"$nomSauvegarde\" en cours...
     sudo borg $action /backup::$nomSauvegarde
     echo Extraction terminée !
 elif test "$action" = "delete"
     then
-    echo Suppression en cours
-    sudo borg $action /backup::$nomSauvegarde
-    echo Votre sauvegarde \"$nomSauvegarde\" a bien été supprimée !
+    if test "$nomSauvegarde" = "all"
+        then
+        echo Suppression en cours...
+        sudo borg $action /backup
+        echo Tous vos backup ont bien été supprimés !
+    else
+        echo Suppression en cours...
+        sudo borg $action /backup::$nomSauvegarde
+        echo Votre backup \"$nomSauvegarde\" a bien été supprimé !
+    fi
 else
-    echo erreur
+    echo Erreur: mettez comme premier argument save, list, extract ou delete pour utiliser ce prgramme. Plus d\'informations sur notre documentation d\'utilisation.
 fi
