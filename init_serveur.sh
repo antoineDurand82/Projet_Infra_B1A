@@ -1,6 +1,6 @@
 #!/bin/bash
 
-sudo apt-get install nfs-kernel-server -y
+sudo apt install nfs-kernel-server -y
 
 sudo mkdir /backup
 
@@ -9,8 +9,8 @@ read ip_client
 
 sudo echo "$ip_client client">>/etc/hosts
 
-sudo echo "/backup client(rw,no_root_squash)"
+sudo echo "/backup client(rw,no_root_squash)">>/etc/exports
 
-sudo /etc/init.d/nfs-kernel-server reload
+sudo service nfs-kernel-server reload
 
-sudo /etc/init.d/nfs-kernel-server restart
+sudo service nfs-kernel-server restart
