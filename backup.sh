@@ -8,14 +8,14 @@ chemin=$3
 #s'assurer que le dossier backup existe
 if test -d /backup
     then
-    if test -d /backup/hints.49
+    if test -f /backup/config
         then
         echo Rappel: vos backup sont enregistrés dans /backup
         echo ''
-        else 
-            echo Vos backup seront enregistré dans /backup
-            echo ''
-            sudo borg init -e none /backup
+    else 
+        echo Vos backup seront enregistré dans /backup
+        echo ''
+        sudo borg init -e none /backup
     fi
 else
     echo Vos backup seront enregistré dans /backup
