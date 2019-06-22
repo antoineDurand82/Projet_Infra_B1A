@@ -36,7 +36,7 @@ elif test "$action" = "list"
 elif test "$action" = "extract"
     then
     echo Extraction du contenue du backup \"$nomSauvegarde\" en cours...
-    sudo borg $action /backup::$nomSauvegarde $chemin
+    sudo borg $action /backup::$nomSauvegarde
     echo Extraction terminée !
 elif test "$action" = "delete"
     then
