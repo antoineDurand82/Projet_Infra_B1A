@@ -32,9 +32,9 @@ liste_bash = Listbox(can, xscrollcommand=scrollbar.set, width = 30)
 ### Fonctions
 
 def extract():
-	global entr3_var
-	entr3_var = entr3_var.get()
-	os.system("./backup.sh extract %s" %(entr3_var))
+	global entr4_var
+	entr4_var = entr4_var.get()
+	os.system("./backup.sh extract %s" %(entr4_var))
 
 def save():
 	global entr1_var, entr2_var
