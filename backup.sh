@@ -13,7 +13,6 @@ if test -d /backup
         echo Rappel: vos backup sont enregistrés dans /backup
         echo ''
     else 
-        echo fdp tu me casse les couilles
         echo Vos backup seront enregistré dans /backup
         echo ''
         sudo borg init -e none /backup
