@@ -20,11 +20,11 @@ entr3 = Entry(can)
 def extract():
 	os.system("./backup.sh extract")
 	
-def save(entr1, entr2):
+def save():
 	os.system("./backup.sh save %s %s" %(entr1, entr2))
 
-def delete(entr3):
-	os.system("./backup.sh delete %s" %(entr1))
+def delete():
+	os.system("./backup.sh delete %s" %(entr3))
 	
 def deleteAll():
 	os.system("yes `echo YES` | ./backup.sh delete all")
