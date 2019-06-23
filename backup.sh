@@ -10,15 +10,15 @@ if test -d /backup
     then
     if sudo test -f /backup/config
         then
-        echo Rappel: vos backup sont enregistrés dans /backup
+        echo Rappel: vos backups sont enregistrés dans /backup
         echo ''
     else 
-        echo Vos backup seront enregistré dans /backup
+        echo Vos backups seront enregistrés dans /backup
         echo ''
         sudo borg init -e none /backup
     fi
 else
-    echo Vos backup seront enregistré dans /backup
+    echo Vos backups seront enregistrés dans /backup
     echo ''
     sudo borg init -e none /backup
 fi
