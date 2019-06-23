@@ -9,6 +9,7 @@ sudo apt install python3-pip -y
 sudo apt-get install python3-tk -y
 
 chmod +x backup.sh
+chmod +wxr Backup.py
 
 echo -e "\n\nVeuillez fournir l'adresse ip de votre serveur:"
 read ip_serveur
