@@ -14,3 +14,17 @@ sudo echo "/backup client(rw,no_root_squash)">>/etc/exports
 sudo service nfs-kernel-server reload
 
 sudo service nfs-kernel-server restart
+
+touch auto.sh
+
+echo -e "\n\nVeuillez fournir le chemin complet jusqu'à votre dossier \nPar exemple '/home/antoine/Desktop'. Pensez à retirer le dernier '/' se trouvant après le dernier dossier"
+read cheminbackup
+
+echo -e "\n\nVeuillez fournir le chemin complet jusqu'à votre dossier contenant le fichier que vous venez de lancer"
+read cheminfichier
+
+sudo echo "sudo cp -r /backup $cheminbackup">>$cheminfichier/auto.sh
+
+sudo mv $cheminfichier/auto.sh /etc/cron.daily/
+
+echo -e "\n\nL'installion est terminée, bravo"

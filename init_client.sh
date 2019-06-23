@@ -4,6 +4,10 @@ sudo apt-get install nfs-common -y
 
 sudo apt-get install borgbackup -y
 
+sudo apt install python3-pip
+
+sudo apt-get install python3-tk
+
 chmod +x backup.sh
 
 echo -e "\n\nVeuillez fournir l'adresse ip de votre serveur:"
@@ -15,6 +19,6 @@ sudo showmount -e serveurnfs
 
 sudo mkdir /backup
 
-sudo echo "serveurnfs:/backup/ /backup nfs defaults,user,auto,noatime,bg 0 0" >> /etc/fstab
+sudo echo "serveurnfs:/backup/ /backup nfs defaults,user,auto,noatime,bg 0 0">>/etc/fstab
 
 sudo reboot
