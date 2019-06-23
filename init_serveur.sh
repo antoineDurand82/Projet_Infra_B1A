@@ -2,8 +2,6 @@
 
 sudo apt install nfs-kernel-server -y
 
-sudo apt-get install nfs-common -y
-
 sudo mkdir /backup
 
 echo -e "\n\nVeuillez fournir l'adresse ip de votre client:"
