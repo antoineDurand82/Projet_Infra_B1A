@@ -11,9 +11,13 @@ can = Canvas(fen, height = 160, width = 160)
 txt1 = Label(can, text = "Nom :")
 txt2 = Label(can, text = "Chemin : ")
 txt3 = Label(can, text = "Nom :")
-entr1 = Entry(can)
-entr2 = Entry(can)
-entr3 = Entry(can)
+entr1_var = StringVar()
+entr2_var = StringVar()
+entr3_var = StringVar()
+entr1 = Entry(can, textvariable = entr1_var)
+entr2 = Entry(can, textvariable = entr2_var)
+entr3 = Entry(can, textvariable = entr3_var)
+
 
 ### Fonctions
 
@@ -21,10 +25,15 @@ def extract():
 	os.system("./backup.sh extract")
 	
 def save():
-	os.system("./backup.sh save %s %s" %(entr1, entr2))
+	global entr1_var, entr2_var
+	entr1_var = entr1_var.get()
+	entr2_var = entr2_var.get()
+	os.system("./backup.sh save %s %s" %(entr1_var, entr2_var))
 
 def delete():
-	os.system("./backup.sh delete %s" %(entr3))
+	global entr3_var
+	entr3_var = entr3_var.get()
+	os.system("./backup.sh delete %s" %(entr3_var))
 	
 def deleteAll():
 	os.system("yes `echo YES` | ./backup.sh delete all")
