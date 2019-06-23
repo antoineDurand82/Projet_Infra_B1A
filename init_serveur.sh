@@ -4,7 +4,7 @@ sudo apt install nfs-kernel-server -y
 
 sudo mkdir /backup
 
-echo -e "\nVeuillez fournir l'adresse ip de votre client"
+echo -e "\n\nVeuillez fournir l'adresse ip de votre client:"
 read ip_client
 
 sudo echo "$ip_client client">>/etc/hosts

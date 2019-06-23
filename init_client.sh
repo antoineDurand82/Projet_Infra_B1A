@@ -4,7 +4,9 @@ sudo apt-get install nfs-common -y
 
 sudo apt-get install borgbackup -y
 
-echo -e "\nVeuillez fournir l'adresse ip de votre serveur"
+chmod +x backup.sh
+
+echo -e "\n\nVeuillez fournir l'adresse ip de votre serveur:"
 read ip_serveur
 
 sudo echo "$ip_serveur serveurnfs">>/etc/hosts
