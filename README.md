@@ -2,23 +2,24 @@
 
 Ces scripts sont fait pour être utlisés sous Ubuntu.  
 
-Ils permettent de créer et gérer des backup des arborescences que vous souhaitez ainsi que de les sauvegarder sur un serveur.
-Cela inclus une sauvegarde automatique tous les jours du dossier de votre choix ainsi que qu'une copie des backup tous les jours sur un autre dossier du serveur pour plus de sécurité.
+Ils permettent de créer et gérer des backups des arborescences que vous souhaitez ainsi que de les sauvegarder sur un serveur.
+Cela inclus une sauvegarde automatique tous les jours du dossier de votre choix ainsi qu'une copie des backups tous les jours sur un autre dossier du serveur pour plus de sécurité.
 
 ## Installation  
 
-### Serveur:
+Il faut en tout premier configurer votre serveur: 
 
-Il faut en tout premier configurer votre serveur:  
+### Serveur:
+ 
 Clonez ce repository dans le dossier de votre choix. Ce sera depuis ce dossier que vous devrez lancer le script d'installation.  
 
-Assurez vous d'être dans votre dossier où vous avez pull le repository et écrivez : 
+Assurez vous d'être dans votre dossier où vous avez pull le repository et écrivez dans votre terminal: 
 
     chmod +xw init_server.sh  
 
-Tapez ensuite ./init_server.sh pour lancer l'installation et la configuration de tout ce qui est necessaire pour le partage de fichier des backup de votre client vers votre serveur.  
+Tapez ensuite `sudo ./init_server.sh` pour lancer l'installation et la configuration de tout ce qui est necessaire pour le partage de fichier des backup de votre client vers votre serveur.  
 
-Vous avez plus qu'a suivre les instructions que le script vous donnera et c'est tout !  
+Vous n'avez plus qu'à suivre les instructions que le script vous donnera et c'est tout !  
 
 ### Client:  
 
@@ -29,9 +30,9 @@ Assurez vous d'être dans votre dossier où vous avez pull le repository et écr
 
     chmod +xw init_client.sh  
 
-Tapez ensuite ./init_client.sh pour lancer l'installation et la configuration de tout ce qui est necessaire pour pouvoir faire des backup et permettre le partage de fichier des backup de votre client vers votre serveur.  
+Tapez ensuite `sudo ./init_client.sh` pour lancer l'installation et la configuration de tout ce qui est necessaire pour pouvoir faire des backups et permettre le partage de fichier des backups de votre client vers votre serveur.  
 
-Vous avez plus qu'a suivre les instructions que le script vous donnera et c'est tout !    
+Vous n'avez plus qu'à suivre les instructions que le script vous donnera et c'est tout !    
 
 ## Utilisation  
 
@@ -103,7 +104,7 @@ Mais attention ! Le bouton delete all ne necessite pas d'écrire quelque chose a
 
 ### Au sujet des sauvegardes automatiques toutes les 24h
 
-Lors de l'installation il vous a été demander de choisir quel dossier sauvegarder toute les 24h et dans quel dossier du serveur vous voulez copié les backups du dossier partagé.
+Lors de l'installation il vous a été demander de choisir quel dossier sauvegarder toute les 24h et dans quel dossier du serveur vous voudriez copié les backups du dossier partagé.
 
 Si pour n'importe quelle raison cela ne fonctionnerait pas, sur le client tapez:  
 
@@ -119,7 +120,7 @@ Remplacez chemin_absolu par le chemin absolu jusqu'au backup.sh et chemin_voulu_
 
 Pour le serveur:  
 
-Si pour n'importe quelle raison cela ne fonctionnerait pas, sur le client tapez:  
+Si pour n'importe quelle raison cela ne fonctionnerait pas, sur le serveur tapez:  
 
     sudo crontab -e
 
