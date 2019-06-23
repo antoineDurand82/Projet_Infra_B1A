@@ -35,7 +35,7 @@ elif test "$action" = "list"
     sudo borg $action /backup
 elif test "$action" = "extract"
     then
-    echo Extraction du contenue du backup \"$nomSauvegarde\" en cours...
+    echo Extraction du contenu du backup \"$nomSauvegarde\" en cours...
     sudo borg $action /backup::$nomSauvegarde
     echo Extraction terminée !
 elif test "$action" = "delete"
@@ -52,16 +52,15 @@ elif test "$action" = "delete"
     fi
 elif test "$action" = "-h" || test "$action" = "--help"
     then
-    echo Pour utiliser ce script, écrivez: 
-    echo -e "\n Pour enregistrer un backup: "
+    echo "Pour enregistrer un backup: "
     echo "./backup.sh save nom_de_votre_backup chemin_du_backup "
-    echo -e "\n Pour lister tous vos backup enregistrés:"
+    echo -e "\nPour lister tous vos backup enregistrés:"
     echo "./backup.sh list "
-    echo -e "\n Pour extraire votre backup dans le répertoire courant:"
+    echo -e "\nPour extraire votre backup dans le répertoire courant:"
     echo "./backup.sh extract nom_de_votre_backup"
-    echo -e "\n Pour supprimer le backup de votre choix:"
+    echo -e "\nPour supprimer le backup de votre choix:"
     echo "./backup.sh delete nom_de_votre_backup"
-    echo -e "\n Pour supprimer tous vos backup:"
+    echo -e "\nPour supprimer tous vos backup:"
     echo "./backup.sh delete all "
 else
     echo Erreur: Il y a un problème au niveau des arguments donnés. Rajoutez -h ou --help pour obtenir de l\'aide. Plus d\'informations sur notre documentation d\'utilisation.
