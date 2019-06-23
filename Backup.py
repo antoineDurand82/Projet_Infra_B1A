@@ -2,6 +2,7 @@
 
 from tkinter import *
 import os
+from subprocess import check_output
 
 ### Variables ###
 
@@ -47,10 +48,8 @@ def delete():
 def deleteAll():
 	os.system("yes `echo YES` | ./backup.sh delete all")
 
-def openlist():
-	fichier = open("list.txt", 'w')
-	cmd = os.popen("./backup.sh list", 'r')
-	fichier.write(cmd)
+def listappend():
+	os.system("./backup.sh list>file.txt")
 	
 
 ### Buttons ###
@@ -62,7 +61,13 @@ boutton_Extract = Button(can, text = "Extract", command = extract)
 
 
 ### Positions ###
-openlist()
+listappend()
+fichier = open('file.txt','r')
+
+for lignes in fichier:
+	liste_bash.insert(1, lignes)
+
+
 txt1.grid(row = 1, column = 1)
 entr1.grid(row = 1, column = 2)
 
