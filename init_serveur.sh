@@ -16,8 +16,9 @@ sudo service nfs-kernel-server reload
 sudo service nfs-kernel-server restart
 
 touch auto.sh
+chmod +x auto.sh
 
-echo -e "\n\nVeuillez fournir le chemin complet jusqu'à votre dossier \nPar exemple '/home/antoine/Desktop'. Pensez à retirer le dernier '/' se trouvant après le dernier dossier"
+echo -e "\n\nVeuillez fournir le chemin complet jusqu'à votre dossier où vous voulez avoir une backup de votre dossier partager \nPar exemple '/home/antoine/Desktop'. Pensez à retirer le dernier '/' se trouvant après le dernier dossier"
 read cheminbackup
 
 echo -e "\n\nVeuillez fournir le chemin complet jusqu'à votre dossier contenant le fichier que vous venez de lancer"
