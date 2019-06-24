@@ -28,7 +28,7 @@ sudo echo "serveurnfs:/backup/ /backup nfs defaults,user,auto,noatime,bg 0 0">>/
 echo -e "\n\nVeuillez fournir le chemin complet jusqu'à votre dossier pour avoir une backup journalière de ce dernier' \nPar exemple '/home/antoine/Desktop'. Pensez à retirer le dernier '/' se trouvant après le dernier dossier"
 read cheminbackup
 
-echo -e "\n\nVeuillez fournir le chemin complet jusqu'à votre dossier contenant le fichier que vous venez de lancer"
+echo -e "\n\nVeuillez fournir le chemin complet jusqu'à votre dossier contenant le fichier 'init_client.sh' que vous venez de lancer"
 read cheminfichier
 
 sudo echo "yes | $cheminfichier/backup.sh save sauvegardeJournaliere_`date "+\%d.\%m.\%Y"` $cheminbackup">>$cheminfichier/auto.sh
