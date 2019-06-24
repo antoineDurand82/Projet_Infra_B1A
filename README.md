@@ -92,20 +92,27 @@ Exécutez Backup.py depuis le dossier où vous avez cloné le répository en éc
 
     python3 Backup.py 
 
-Vous pouvez aussi exécuter le script depuis un autre endroit en mettant le chemin absolue de ce script.  
+Il n'est pas encore possible d'utiliser l'application en dehors du dossier de où il se situe, même en lançant l'application avec son chemin absolue.
 
 Chaque action sera sur une ligne.  
-Par exemple pour save remplissez les zone de textes par les infos demandés sur la ligne ou se trouve le bouton save puis appuyez sur le bouton save.
+Par exemple pour save remplissez les zone de textes par les infos demandés sur la ligne ou se trouve le bouton save puis appuyez sur le bouton save.  
+Vous avez aussi la liste des backup qui s'affiche à chaque fois sur l'interface graphique.  
+Voici un exemple où on veut rajouter un backup du dossier Pictures que l'on va nommer bonjour:
+
+![alt text](https://github.com/antoineDurand82/Projet_Infra_B1A/blob/master/screen/1.png)  
+
+Note :Actuellement, il est nécessaire de fermer et relancer l'interface graphique entre chaque actions.  
+Une future mise à jour est prévu pour permettre à l'application de continuer de fonctionner sans devoir être relancé à chaque fois.  
+
+En relançant donc l'application on voit bien que notre nouveau backup se retrouve dans la liste:  
+
+![alt text](https://github.com/antoineDurand82/Projet_Infra_B1A/blob/master/screen/2.png)  
 
 C'est pareil pour toute les autres commandes.
+Par exemple, pour supprimer, vous avez vu que sur le dernier screen on a juste mis le nom du backup bonjour à la ligne delete. Il suffit juste d'ensuite appuyer sur le bouton pour supprimer le backup.
 
-Mais attention ! Le bouton delete all ne necessite pas d'écrire quelque chose avant et cliquer dessus supprimera toutes vos backup du dossier partagé sans demander de confirmation !
-
-Vous avez aussi la liste des backup qui s'affiche à chaque fois sur l'interface graphique.
+Mais attention ! Le bouton delete all backup ne necessite pas d'écrire quelque chose avant et cliquer dessus supprimera toutes vos backup du dossier partagé sans demander de confirmation !
   
-Actuellement, il est nécessaire de fermer et relancer l'interface graphique entre chaque actions.  
-Une future mise à jour est prévu pour permettre à l'application de continuer de fonctionner sans devoir être relancé à chaque fois.
-
 
 ### Au sujet des sauvegardes automatiques toutes les 24h
 
