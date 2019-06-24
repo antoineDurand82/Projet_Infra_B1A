@@ -30,7 +30,7 @@ Assurez vous d'être dans votre dossier où vous avez pull le repository et écr
 
     chmod +xw init_client.sh  
 
-Écrivez `dfgfg`
+Écrivez `ip a` pour connaitre votre adresse ip. Vous en aurez besoin lors de la configuration du client.  
 Tapez ensuite `sudo ./init_client.sh` pour lancer l'installation et la configuration de tout ce qui est necessaire pour pouvoir faire des backups et permettre le partage de fichier des backups de votre client vers votre serveur.  
 
 Vous n'avez plus qu'à suivre les instructions que le script vous donnera et c'est tout !    
