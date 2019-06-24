@@ -21,7 +21,7 @@ chmod +x auto.sh
 echo -e "\n\nVeuillez fournir le chemin complet jusqu'à votre dossier où vous voulez avoir une backup de votre dossier partager \nPar exemple '/home/antoine/Desktop'. Pensez à retirer le dernier '/' se trouvant après le dernier dossier"
 read cheminbackup
 
-echo -e "\n\nVeuillez fournir le chemin complet jusqu'à votre dossier contenant le fichier que vous venez de lancer"
+echo -e "\n\nVeuillez fournir le chemin complet jusqu'à votre dossier contenant le fichier 'init_serveur.sh' que vous venez de lancer"
 read cheminfichier
 
 sudo echo "sudo cp -r /backup $cheminbackup">>$cheminfichier/auto.sh
