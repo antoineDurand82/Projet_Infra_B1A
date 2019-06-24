@@ -15,13 +15,13 @@ Clonez ce repository dans le dossier de votre choix. Ce sera depuis ce dossier q
 
 Assurez vous d'être dans votre dossier où vous avez pull le repository et écrivez dans votre terminal: 
 
-    chmod +xw init_server.sh  
+    chmod +xw init_serveur.sh  
 
-Tapez ensuite `sudo ./init_server.sh` pour lancer l'installation et la configuration de tout ce qui est necessaire pour le partage de fichier des backup de votre client vers votre serveur.  
+Tapez ensuite `sudo ./init_serveur.sh` pour lancer l'installation et la configuration de tout ce qui est necessaire pour le partage de fichier des backup de votre client vers votre serveur.  
 
 Vous n'avez plus qu'à suivre les instructions que le script vous donnera et c'est tout !  
 
-### Client:  
+### Client:
 
 Maintenant que le serveur est configuré, il faut configurer votre client:
 Clonez ce repository dans le dossier de votre choix. Ce sera depuis ce dossier que vous devrez lancer le script d'installation.  
@@ -30,6 +30,7 @@ Assurez vous d'être dans votre dossier où vous avez pull le repository et écr
 
     chmod +xw init_client.sh  
 
+Écrivez `dfgfg`
 Tapez ensuite `sudo ./init_client.sh` pour lancer l'installation et la configuration de tout ce qui est necessaire pour pouvoir faire des backups et permettre le partage de fichier des backups de votre client vers votre serveur.  
 
 Vous n'avez plus qu'à suivre les instructions que le script vous donnera et c'est tout !    
