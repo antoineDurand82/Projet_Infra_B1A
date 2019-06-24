@@ -108,7 +108,7 @@ En relançant donc l'application on voit bien que notre nouveau backup se retrou
 
 ![alt text](https://github.com/antoineDurand82/Projet_Infra_B1A/blob/master/screen/2.png)  
 
-C'est pareil pour toute les autres commandes.
+C'est pareil pour toute les autres commandes.  
 Par exemple, pour supprimer, vous avez vu que sur le dernier screen on a juste mis le nom du backup bonjour à la ligne delete. Il suffit juste d'ensuite appuyer sur le bouton pour supprimer le backup.
 
 Mais attention ! Le bouton delete all backup ne necessite pas d'écrire quelque chose avant et cliquer dessus supprimera toutes vos backup du dossier partagé sans demander de confirmation !
