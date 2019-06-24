@@ -90,7 +90,7 @@ Cela vous rappellera commment utiliser le script.
 
 Exécutez Backup.py depuis le dossier où vous avez cloné le répository en écrivant:
 
-    ./Backup.py 
+    python3 Backup.py 
 
 Vous pouvez aussi exécuter le script depuis un autre endroit en mettant le chemin absolue de ce script.  
 
@@ -100,6 +100,11 @@ Par exemple pour save remplissez les zone de textes par les infos demandés sur 
 C'est pareil pour toute les autres commandes.
 
 Mais attention ! Le bouton delete all ne necessite pas d'écrire quelque chose avant et cliquer dessus supprimera toutes vos backup du dossier partagé sans demander de confirmation !
+
+Vous avez aussi la liste des backup qui s'affiche à chaque fois sur l'interface graphique.
+  
+Actuellement, il est nécessaire de fermer et relancer l'interface graphique entre chaque actions.  
+Une future mise à jour est prévu pour permettre à l'application de continuer de fonctionner sans devoir être relancé à chaque fois.
 
 
 ### Au sujet des sauvegardes automatiques toutes les 24h
@@ -126,6 +131,6 @@ Si pour n'importe quelle raison cela ne fonctionnerait pas, sur le serveur tapez
 
 Et copiez-collez dedans:
 
-    31 19 * * * sudo cp -r /backup chemin_absolu_dossier_copie
+    40 19 * * * sudo cp -r /backup chemin_absolu_dossier_copie
 
 Remplacez chemin_absolu_dossier_copie par le chemin absolu du dossier où vous voulez copier les backup du dossier partager.
