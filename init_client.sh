@@ -35,5 +35,7 @@ echo "yes | $cheminfichier/backup.sh save sauvegardeJournaliere_`date "+\%d.\%m.
 
 mv $cheminfichier/auto.sh /etc/cron.daily/
 
+mount -a -v /etc/fstab
+
 echo "Installation terminée."
 
