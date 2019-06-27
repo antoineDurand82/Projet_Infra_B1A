@@ -10,17 +10,22 @@ if test -d /backup
     then
     if sudo test -f /backup/config
         then
-        echo Rappel: vos backups sont enregistrés dans /backup
+        echo Rappel: vos backup sont enregistrés dans /backup
         echo ''
     else 
-        echo Vos backups seront enregistrés dans /backup
+        echo Vos backup seront enregistré dans /backup
         echo ''
         sudo borg init -e none /backup
     fi
 else
-    echo Vos backups seront enregistrés dans /backup
+    echo Vos backup seront enregistré dans /backup
     echo ''
     sudo borg init -e none /backup
+fi
+
+if ! test -f /nePasSupprimer
+    then
+    touch /nePasSupprimer  
 fi
 
 
@@ -29,15 +34,43 @@ if test "$action" = "save"
     then
     echo Sauvegarde en cours...
     sudo borg create /backup::$nomSauvegarde $chemin
+    echo $nomSauvegarde';'$chemin>>/nePasSupprimer
     echo Sauvegarde Effectuée !
 elif test "$action" = "list"
     then
     sudo borg $action /backup
 elif test "$action" = "extract"
     then
-    echo Extraction du contenu du backup \"$nomSauvegarde\" en cours...
+    echo Extraction du contenue du backup \"$nomSauvegarde\" en cours...
     sudo borg $action /backup::$nomSauvegarde
     echo Extraction terminée !
+elif test "$action" = "restore" && ! test -z $nomSauvegarde
+    then
+    echo Restoration du contenue du backup \"$nomSauvegarde\" en cours...
+    nombreslash=$(grep $nomSauvegarde /nePasSupprimer | cut -d';' -f2 | grep -o "/" | wc -l)
+    let nombreslash+=1
+    dernierdossier=$(grep $nomSauvegarde /nePasSupprimer | cut -d';' -f2 | grep "/" | cut -d'/' -f$nombreslash)
+    chemincomplet=$(grep $nomSauvegarde /nePasSupprimer | cut -d';' -f2)
+    retrouverChemin=${#dernierdossier}
+    let retrouverChemin+=1
+    cheminVoulu=${chemincomplet::-$retrouverChemin}
+    if test -z $cheminVoulu
+        then
+        cheminVoulu='/'
+    fi
+    cheminVoulu2="${cheminVoulu:1}"
+    cd $cheminVoulu
+    rm -rf $dernierdossier
+    sudo borg extract /backup::$nomSauvegarde
+    if test $cheminVoulu != '/'
+        then
+        cd $cheminVoulu2
+        mv $dernierdossier $cheminVoulu
+        cd $cheminVoulu
+        suppressionRelou=$(grep $nomSauvegarde /nePasSupprimer | cut -d';' -f2 | cut -d'/' -f2)
+        rm -rf $suppressionRelou
+    fi
+    echo Restoration terminée !
 elif test "$action" = "delete"
     then
     if test "$nomSauvegarde" = "all"
@@ -48,19 +81,21 @@ elif test "$action" = "delete"
     else
         echo Suppression en cours...
         sudo borg $action /backup::$nomSauvegarde
+        sed -i /$nomSauvegarde/d /nePasSupprimer
         echo Votre backup \"$nomSauvegarde\" a bien été supprimé !
     fi
 elif test "$action" = "-h" || test "$action" = "--help"
     then
-    echo "Pour enregistrer un backup: "
+    echo Pour utiliser ce script, écrivez: 
+    echo -e "\n Pour enregistrer un backup: "
     echo "./backup.sh save nom_de_votre_backup chemin_du_backup "
-    echo -e "\nPour lister tous vos backup enregistrés:"
+    echo -e "\n Pour lister tous vos backup enregistrés:"
     echo "./backup.sh list "
-    echo -e "\nPour extraire votre backup dans le répertoire courant:"
+    echo -e "\n Pour extraire votre backup dans le répertoire courant:"
     echo "./backup.sh extract nom_de_votre_backup"
-    echo -e "\nPour supprimer le backup de votre choix:"
+    echo -e "\n Pour supprimer le backup de votre choix:"
     echo "./backup.sh delete nom_de_votre_backup"
-    echo -e "\nPour supprimer tous vos backup:"
+    echo -e "\n Pour supprimer tous vos backup:"
     echo "./backup.sh delete all "
 else
     echo Erreur: Il y a un problème au niveau des arguments donnés. Rajoutez -h ou --help pour obtenir de l\'aide. Plus d\'informations sur notre documentation d\'utilisation.
