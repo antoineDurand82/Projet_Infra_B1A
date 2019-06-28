@@ -61,6 +61,15 @@ Pour extraire votre backup dans le répertoire courant, écrivez:
 Remplacez nom_de_votre_backup par le nom du backup que vous voulez extraire.  
 Si vous voulez extraire une backup dans un dossier en particulier, vous devez aller dans le dossier où vous voulez extraire votre backup puis executer la commande en spécifiant le chemin absolu de votre commande au lieu de mettre directement ./backup.sh  
 
+Pour restorer votre backup, écrivez:  
+
+    ./backup.sh restore nom_de_votre_backup
+
+Remplacez nom_de_votre_backup par le nom du backup que vous voulez restaurer.  
+La restauration d'un backup est différente qu'une simple extraction. En faisant une restauration, le backup va automatiquement se remettre à son emplacement d'origine en remplaçant votre dossier actuel. Par exemple une restauration du backup de /etc supprimera votre /etc actuel pour le remplaçer par la version du backup.  
+
+Attention, vous allez remarquer qu'à la racine de votre Ubuntu se trouve un fichier nePasSupprimer qui va se créer lors de la première utilisation de backup.sh. Ce fichier sert au bon fonctionnement de la fonction "restore". La suppression de ce fichier empèchera les backups de se restaurer dans l'emplacement d'origine !  
+
 
 Pour supprimer le backup de votre choix, écrivez:
 
