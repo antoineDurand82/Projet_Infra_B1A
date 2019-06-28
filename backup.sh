@@ -8,19 +8,19 @@ chemin=$3
 #s'assurer que le dossier backup existe
 if test -d /backup
     then
-    if sudo test -f /backup/config
+    if test -f /backup/config
         then
         echo Rappel: vos backup sont enregistrés dans /backup
         echo ''
     else 
         echo Vos backup seront enregistré dans /backup
         echo ''
-        sudo borg init -e none /backup
+        borg init -e none /backup
     fi
 else
     echo Vos backup seront enregistré dans /backup
     echo ''
-    sudo borg init -e none /backup
+    borg init -e none /backup
 fi
 
 if ! test -f /nePasSupprimer
@@ -33,16 +33,16 @@ fi
 if test "$action" = "save"
     then
     echo Sauvegarde en cours...
-    sudo borg create /backup::$nomSauvegarde $chemin
+    borg create /backup::$nomSauvegarde $chemin
     echo $nomSauvegarde';'$chemin>>/nePasSupprimer
     echo Sauvegarde Effectuée !
 elif test "$action" = "list"
     then
-    sudo borg $action /backup
+    borg $action /backup
 elif test "$action" = "extract"
     then
     echo Extraction du contenue du backup \"$nomSauvegarde\" en cours...
-    sudo borg $action /backup::$nomSauvegarde
+    borg $action /backup::$nomSauvegarde
     echo Extraction terminée !
 elif test "$action" = "restore" && ! test -z $nomSauvegarde
     then
@@ -61,7 +61,7 @@ elif test "$action" = "restore" && ! test -z $nomSauvegarde
     cheminVoulu2="${cheminVoulu:1}"
     cd $cheminVoulu
     rm -rf $dernierdossier
-    sudo borg extract /backup::$nomSauvegarde
+    borg extract /backup::$nomSauvegarde
     if test $cheminVoulu != '/'
         then
         cd $cheminVoulu2
@@ -76,11 +76,11 @@ elif test "$action" = "delete"
     if test "$nomSauvegarde" = "all"
         then
         echo Suppression en cours...
-        sudo borg $action /backup
+        borg $action /backup
         echo Tous vos backup ont bien été supprimés !
     else
         echo Suppression en cours...
-        sudo borg $action /backup::$nomSauvegarde
+        borg $action /backup::$nomSauvegarde
         sed -i /$nomSauvegarde/d /nePasSupprimer
         echo Votre backup \"$nomSauvegarde\" a bien été supprimé !
     fi
